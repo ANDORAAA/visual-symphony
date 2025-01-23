@@ -1,12 +1,17 @@
 .masonry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   gap: 1rem;
   padding: 1rem;
+  max-width: 60rem;
+  margin: auto;
+  grid-auto-columns: auto;
+  grid-template-columns: repeat(auto-fill, 186px);
+  justify-content: center;
 }
 
 .masonry-grid img {
   width: 100%;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
 }

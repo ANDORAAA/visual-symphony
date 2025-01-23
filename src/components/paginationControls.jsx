@@ -2,7 +2,7 @@ import { Ctx } from '../context/store';
 import { useContext } from 'react';
 
 const PaginationControls = () => {
-  const { currentPage, setCurrentPage } = useContext(Ctx);
+  const { currentPage, setCurrentPage, totalPages } = useContext(Ctx);
 
   const handlePrevious = () => {
     setCurrentPage((page) => page - 1);
@@ -17,8 +17,8 @@ const PaginationControls = () => {
       <button onClick={handlePrevious} disabled={currentPage === 1}>
         Prev
       </button>
-      <span>{currentPage}</span>
-      <button onClick={handleNext}>Next</button>
+      <span>{currentPage + "/" + totalPages}</span>
+      <button onClick={handleNext} disabled={currentPage === totalPages}>Next</button>
     </div>
   );
 };

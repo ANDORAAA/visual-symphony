@@ -3,6 +3,7 @@ import HamburgerMenu from '../components/hamburgerMenu';
 import '../styles/home.css';
 import MasonryGrid from '../components/masonryGrid';
 import PaginationControls from '../components/paginationControls';
+import Loader from '../components/loader';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
         <MasonryGrid />
         <PaginationControls />
       </div>
+      <Loader />
     </div>
   );
 };

@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&family=Satisfy&display=swap');
+
+.landing-page {
+  font-family: 'Playfair Display', serif;
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.percentage-text {
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+  font-size: 8rem;
+}
+
+.percentage-bar {
+  position: absolute;
+  left: 3rem;
+  bottom: 3rem;
+  height: 0.1rem;
+  background-color: #fff;
+}

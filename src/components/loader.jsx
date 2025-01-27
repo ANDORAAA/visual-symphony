@@ -3,11 +3,11 @@ import { Ctx } from '../context/store';
 import { Spinner } from 'react-bootstrap';
 import '../styles/loader.css';
 
-const Loader = () => {
+const Loader = ({global=true}) => {
   const { spinner } = useContext(Ctx);
 
   return spinner ? (
-    <div className='loader-wrapper'>
+    <div className={global ? 'loader-wrapper' : ''}>
       <Spinner animation='border' role='status' id='loader'>
         <span className='visually-hidden'>Loading...</span>
       </Spinner>

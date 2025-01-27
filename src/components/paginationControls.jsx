@@ -1,28 +1,12 @@
 import { Ctx } from '../context/store';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { CiCircleChevRight, CiCircleChevLeft } from 'react-icons/ci';
 import '../styles/paginationControls.css';
-import { fetchArtworks } from '../services/api';
+
 
 const PaginationControls = () => {
-  const { currentPage, setCurrentPage, totalPages, setArtworks, setSpinner } =
+  const { currentPage, setCurrentPage, totalPages } =
     useContext(Ctx);
-
-  useEffect(() => {
-    const loadArtworks = async () => {
-      try {
-        setSpinner(true);
-        const data = await fetchArtworks(currentPage);
-        setArtworks(data?.data || []);
-      } catch (error) {
-        console.error('Error loading artworks:', error);
-      } finally {
-        setSpinner(false);
-      }
-    };
-
-    loadArtworks();
-  }, [currentPage, setArtworks, setSpinner]);
 
   const handlePrevious = () => {
     if (currentPage > 1) {

@@ -15,7 +15,7 @@ const MasonryLayout = () => {
     const fetchData = async () => {
       setSpinner(true);
       try {
-        const data = await fetchArtworks();
+        const data = await fetchArtworks(currentPage);
         setArtworks(data?.data || []);
         setTotalPages(data?.pagination?.total_pages || 1);
       } catch (error) {
@@ -25,7 +25,7 @@ const MasonryLayout = () => {
       }
     };
     fetchData();
-  }, [currentPage, setArtworks, setTotalPages, setSpinner]);
+  }, [currentPage]);
 
   const closeModal = () => setSelectedArtwork(null);
 

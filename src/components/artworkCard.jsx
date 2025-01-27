@@ -6,6 +6,7 @@ const ArtworkCard = ({ artwork }) => {
       <img
         src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
         alt={artwork.title || 'Untitled'}
+        loading="lazy"
       />
       {/* {artwork.title && <h3>{artwork.title}</h3>}
 

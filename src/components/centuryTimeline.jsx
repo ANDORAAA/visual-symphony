@@ -1,11 +1,12 @@
 import '../styles/centuries.css';
 
-const CenturyTimeline = ({ centuries, onCenturyClick }) => (
+const CenturyTimeline = ({ centuries, onCenturyClick, selectedCentury }) => (
   <div className='century-timeline'>
-    {centuries.map((century) => (
+    {centuries?.map((century) => (
       <div
         key={century}
         className='century'
+        style={selectedCentury === century ? {backgroundColor: 'darkgreen'} : {}}
         onClick={() => onCenturyClick(century)}
       >
         {century}

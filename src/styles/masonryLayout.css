@@ -1,0 +1,120 @@
+.masonry-layout {
+  columns: 160px;
+  padding: 1rem;
+}
+
+.masonry-layout img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+}
+
+.masonry-layout img:hover {
+  transform: scale(1.1);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-overlay .modal-content {
+  backdrop-filter: blur(30px);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 90vw;
+  height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(254, 254, 254, 0.1);
+  color: white;
+}
+
+.modal-content .close-btn {
+  position: absolute;
+  top: 0rem;
+  right: 0.2rem;
+  padding: 0;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.modal-content img {
+  max-width: 30rem;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.artwork-details {
+  text-align: left;
+  margin-top: 0.6rem;
+}
+
+.more-details:hover {
+  text-decoration: underline;
+}
+
+.more-details button {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .masonry-layout {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .masonry-layout {
+    padding: 1rem 4rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .masonry-layout {
+    padding: 1rem 6rem;
+  }
+  .modal-overlay .modal-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .modal-content .artwork-details {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1441px) {
+  .masonry-layout {
+    columns: 240px;
+    padding: 1rem 8rem;
+  }
+
+  .modal-overlay .modal-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .modal-content .artwork-details {
+    padding: 4rem;
+  }
+}

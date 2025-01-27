@@ -1,12 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&family=Satisfy&display=swap');
+.home-wrapper {
+  color: #333;
+}
 
-.hero-text {
-  font-family: 'Playfair Display', serif;
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 9999;
+}
+
+.nav-bar h5 {
+  margin-left: 0.4rem;
+}
+
+.home-wrapper .hero-text {
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
 }
 
 .hero-text h1 {

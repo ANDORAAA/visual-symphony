@@ -1,16 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&family=Satisfy&display=swap');
 
-body {
+* {
   margin: 0;
-  font-family: 'Lora', serif;
-}
-
-.app-name {
-  font-family: 'Playfair Display';
-  position: absolute;
-  top: 0.2rem;
-  left: 0.2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  z-index: 1000;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
 }

@@ -1,25 +1,26 @@
-import SearchBar from '../components/searchBar';
 import HamburgerMenu from '../components/hamburgerMenu';
-import '../styles/home.css';
-import MasonryGrid from '../components/masonryGrid';
+import MasonryLayout from '../components/masonryLayout';
 import PaginationControls from '../components/paginationControls';
+import Loader from '../components/loader';
+import '../styles/home.css';
 
 const Home = () => {
   return (
-    <div className='home'>
-      <div className='app-name'>Visual Symphony</div>
-      <div className='top-bar'>
-        <SearchBar />
+    <div className='home-wrapper'>
+      <div className='nav-bar'>
+        <h5>Visual Symphony</h5>
         <HamburgerMenu />
       </div>
+
       <div className='hero-text'>
         <h2>Visual Symphony</h2>
         <h1>Your Visual Journey</h1>
       </div>
       <div className='content'>
-        <MasonryGrid />
         <PaginationControls />
+        <MasonryLayout />
       </div>
+      <Loader />
     </div>
   );
 };

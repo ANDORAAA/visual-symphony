@@ -1,0 +1,11 @@
+.pagination-controls {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+.pagination-controls button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}

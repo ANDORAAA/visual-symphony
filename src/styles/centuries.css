@@ -1,33 +1,11 @@
-/* .centuries-page {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-} */
-
 .centuries-page {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.centuries-page.loading {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://www.artic.edu/iiif/2/80df29cd-493f-23c0-3e51-4ddc38b3f34f/full/full/0/default.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.timeline-wrapper {
-  width: auto;
-  overflow-y: auto;
+  flex-direction: column;
 }
 
 .century-timeline {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .century {
@@ -39,9 +17,9 @@
   transition: background-color 0.3s;
 }
 
-/* .century:hover {
-  background-color: #d0d0d0;
-} */
+.century:hover {
+  background-color: #a58282;
+}
 
 .artworks-wrapper {
   columns: 160px;
@@ -56,13 +34,23 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
   cursor: pointer;
+  transition: transform 0.4s ease;
 }
 
-/* .artwork-card:hover {
+.artwork-card:hover {
   transform: scale(1.1);
-} */
+}
 
 .artwork-card img {
   max-width: 100%;
   border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+  .centuries-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

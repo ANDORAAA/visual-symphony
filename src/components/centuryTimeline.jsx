@@ -6,7 +6,9 @@ const CenturyTimeline = ({ centuries, onCenturyClick, selectedCentury }) => (
       <div
         key={century}
         className='century'
-        style={selectedCentury === century ? {backgroundColor: 'darkgreen'} : {}}
+        style={
+          selectedCentury === century ? { backgroundColor: '#a58282' } : {}
+        }
         onClick={() => onCenturyClick(century)}
       >
         {century}

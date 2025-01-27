@@ -55,8 +55,6 @@
 }
 
 .modal-content img {
-  max-width: 30rem;
-  height: auto;
   border-radius: 0.5rem;
 }
 
@@ -67,13 +65,6 @@
 
 .more-details:hover {
   text-decoration: underline;
-}
-
-.more-details button {
-  border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 1.4rem;
   cursor: pointer;
 }
 

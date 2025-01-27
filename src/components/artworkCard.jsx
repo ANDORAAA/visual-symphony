@@ -6,17 +6,8 @@ const ArtworkCard = ({ artwork }) => {
       <img
         src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
         alt={artwork.title || 'Untitled'}
-        loading="lazy"
+        loading='lazy'
       />
-      {/* {artwork.title && <h3>{artwork.title}</h3>}
-
-      {artwork.artist && <h5>{artwork.artist}</h5>}
-
-      {artwork.origin && artwork.year && (
-        <p>
-          Created in {artwork.origin}, {artwork.year}
-        </p>
-      )} */}
     </div>
   );
 };

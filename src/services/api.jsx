@@ -32,28 +32,30 @@ export const fetchArtworksByYearRange = async (startYear, endYear, page) => {
     limit: 100,
   };
 
-
-      const response = await axios.get(API_URL, {
-        params: { ...queryParams, page },
-      });
-     return response
+  const response = await axios.get(API_URL, {
+    params: { ...queryParams, page },
+  });
+  return response;
 };
-
 
 export const fetchAllArtworksForCenturies = async (century, page) => {
   const centuryMapRange = {
-    '12th Century': { start: 1100, end: 1200 },
-    '13th Century': { start: 1200, end: 1300 },
-    '14th Century': { start: 1300, end: 1400 },
-    '15th Century': { start: 1400, end: 1500 },
-    '16th Century': { start: 1500, end: 1600 },
-    '17th Century': { start: 1600, end: 1700 },
-    '18th Century': { start: 1700, end: 1800 },
-    '19th Century': { start: 1800, end: 1900 },
-    '20th Century': { start: 1900, end: 2000 }
+    '12th Century': { start: 1101, end: 1200 },
+    '13th Century': { start: 1201, end: 1300 },
+    '14th Century': { start: 1301, end: 1400 },
+    '15th Century': { start: 1401, end: 1500 },
+    '16th Century': { start: 1501, end: 1600 },
+    '17th Century': { start: 1601, end: 1700 },
+    '18th Century': { start: 1701, end: 1800 },
+    '19th Century': { start: 1801, end: 1900 },
+    '20th Century': { start: 1901, end: 2000 },
+  };
+  if (century && centuryMapRange[century]) {
+    return await fetchArtworksByYearRange(
+      centuryMapRange[century].start,
+      centuryMapRange[century].end,
+      page
+    );
   }
-    if(century && centuryMapRange[century]){
-      return await fetchArtworksByYearRange(centuryMapRange[century].start, centuryMapRange[century].end, page);
-    }
-    return []
+  return [];
 };

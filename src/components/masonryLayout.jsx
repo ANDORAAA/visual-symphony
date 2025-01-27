@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Ctx } from '../context/store';
 import { fetchArtworks } from '../services/api';
 import { IoCloseOutline } from 'react-icons/io5';
-import { CiMaximize1 } from 'react-icons/ci';
 import '../styles/masonryLayout.css';
 
 const MasonryLayout = () => {
@@ -71,12 +70,9 @@ const MasonryLayout = () => {
               {selectedArtwork.short_description && (
                 <p>{selectedArtwork.short_description}</p>
               )}
-              <div className='more-details'>
-                Learn more about this painting
-                <button>
-                  <CiMaximize1 />
-                </button>
-              </div>
+              <span className='more-details'>
+                Click here to learn more about this painting
+              </span>
             </div>
           </div>
         </div>

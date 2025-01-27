@@ -6,6 +6,7 @@
 
 .century-timeline {
   display: flex;
+  overflow-x: auto;
 }
 
 .century {

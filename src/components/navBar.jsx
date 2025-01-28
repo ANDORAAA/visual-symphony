@@ -21,7 +21,9 @@ const NavBar = () => {
             <Dropdown.Item onClick={() => navigate('/authentication')}>
               Log in | Register
             </Dropdown.Item>
-            <Dropdown.Item href='#/action-2'>Your favourites</Dropdown.Item>
+            <Dropdown.Item onClick={() => navigate('/favourites')}>
+              Your favourites{' '}
+            </Dropdown.Item>
             <Dropdown.Item href='#/action-3'>
               Find paintings by artist or title
             </Dropdown.Item>

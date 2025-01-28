@@ -1,11 +1,10 @@
-import { IoCloseOutline } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { Ctx } from '../context/store';
+import { IoCloseOutline } from 'react-icons/io5';
+import { IoHeartOutline } from 'react-icons/io5';
+
 import '../styles/modal.css';
 
 const Modal = ({ selectedArtwork, setSelectedArtwork }) => {
-  // const { selectedArtwork, setSelectedArtwork } = useContext(Ctx);
   const navigate = useNavigate();
 
   const handleLearnMore = () => {
@@ -26,24 +25,30 @@ const Modal = ({ selectedArtwork, setSelectedArtwork }) => {
         />
         <div className='artwork-details'>
           {selectedArtwork.title && <h1>{selectedArtwork.title}</h1>}
-
           {selectedArtwork.artist_display && (
             <h4>{selectedArtwork.artist_display}</h4>
           )}
-
           {selectedArtwork.place_of_origin && selectedArtwork.date_display && (
             <p>
               Created in {selectedArtwork.place_of_origin},{' '}
               {selectedArtwork.date_display}
             </p>
           )}
-
           {selectedArtwork.short_description && (
             <p>{selectedArtwork.short_description}</p>
           )}
-          <span className='more-details' onClick={handleLearnMore}>
-            Click here to learn more about this painting
-          </span>
+          <p
+            className='more-details'
+            style={{ color: 'rgb(208, 208, 208)' }}
+            onClick={handleLearnMore}
+          >
+            Learn more about this painting
+          </p>
+          <p style={{ color: 'rgb(208, 208, 208)' }}>
+            Save it to your favourites{' '}
+            <IoHeartOutline className='save-to-favourites' />
+          </p>
+          <hr />
         </div>
       </div>
     </div>

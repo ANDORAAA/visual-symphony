@@ -49,3 +49,13 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.save-to-favourites {
+  transition: transform 0.2s ease-in;
+}
+
+.save-to-favourites:hover {
+  cursor: pointer;
+  color: darkred;
+  transform: scale(1.8);
+}

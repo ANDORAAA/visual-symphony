@@ -69,7 +69,7 @@
 }
 
 .remember-forgot label input {
-  accent-color: white;
+  accent-color: rgb(6, 6, 6);
   margin-right: 0.2rem;
   cursor: pointer;
 }

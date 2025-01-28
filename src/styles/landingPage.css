@@ -2,14 +2,7 @@
 
 .landing-page {
   font-family: 'Playfair Display', serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('https://www.artic.edu/iiif/2/591b86ab-c0a9-77f7-c4bf-a330498b9c02/full/full/0/default.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: black;
   color: #ffffff;
   height: 100vh;
   position: relative;
@@ -26,7 +19,7 @@
 
 .percentage-text {
   position: absolute;
-  bottom: 1rem;
+  bottom: 4rem;
   right: 0;
   font-size: 8rem;
   font-weight: bold;
@@ -35,7 +28,7 @@
 .percentage-bar {
   position: absolute;
   left: 3rem;
-  bottom: 2rem;
+  bottom: 5rem;
   height: 0.2rem;
   background-color: #ffffff;
 }

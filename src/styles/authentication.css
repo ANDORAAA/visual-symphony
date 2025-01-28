@@ -2,10 +2,11 @@
 
 .authentication-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('https://www.artic.edu/iiif/2/80df29cd-493f-23c0-3e51-4ddc38b3f34f/full/full/0/default.jpg');
+  background: linear-gradient(rgba(3, 3, 3, 0.3), rgba(3, 3, 3, 0.3)),
+    url('https://www.artic.edu/iiif/2/591b86ab-c0a9-77f7-c4bf-a330498b9c02/full/full/0/default.jpg');
   background-repeat: no-repeat;
   height: 100vh;
   background-size: cover;
@@ -15,7 +16,7 @@
 .authentication {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(20px);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0);
   color: white;
   width: 25rem;
@@ -111,21 +112,3 @@
 .register-link p span:hover {
   text-decoration: underline;
 }
-
-/* @media (min-width: 769px) and (max-width: 1024px) {
-  .authentication {
-    padding: 8rem;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .authentication {
-    padding: 10rem;
-  }
-}
-
-@media (min-width: 1441px) {
-  .authentication {
-    padding: 12rem;
-  }
-} */

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Ctx } from '../context/store';
 import { fetchAllArtworksForCenturies } from '../services/api';
 import CenturyTimeline from '../components/centuryTimeline';
@@ -7,6 +8,7 @@ import Loader from '../components/loader';
 import Modal from '../components/modal';
 import PaginationControls from '../components/paginationControls';
 import { IoHomeOutline } from 'react-icons/io5';
+import { IoHeartOutline } from 'react-icons/io5';
 import '../styles/centuries.css';
 
 const Centuries = () => {
@@ -70,7 +72,6 @@ const Centuries = () => {
 
   return (
     <div className={`centuries-page ${spinner ? 'loading' : ''}`}>
-      <IoHomeOutline style={{ fontSize: '1.5rem', margin: '0.2rem' }} />
       <div className='timeline-wrapper'>
         <CenturyTimeline
           centuries={centuries}
@@ -78,7 +79,17 @@ const Centuries = () => {
           selectedCentury={selectedCentury}
         />
       </div>
+
       <div className='d-flex flex-column mt-3' style={{ maxHeight: '90vh' }}>
+        <div className='btns'>
+          <Link to='/home'>
+            <IoHomeOutline className='home-btn home-favourites-btn' />
+          </Link>
+          <Link to='/favourites'>
+            <IoHeartOutline className='favourites-btn home-favourites-btn' />
+          </Link>
+        </div>
+
         {artworks.length > 0 && <PaginationControls />}
         {spinner ? (
           <Loader />

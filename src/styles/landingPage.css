@@ -5,12 +5,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url('https://www.artic.edu/iiif/2/80df29cd-493f-23c0-3e51-4ddc38b3f34f/full/full/0/default.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://www.artic.edu/iiif/2/591b86ab-c0a9-77f7-c4bf-a330498b9c02/full/full/0/default.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: #fff;
+  color: #ffffff;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -21,6 +21,7 @@
   top: 0rem;
   left: 0.4rem;
   font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .percentage-text {
@@ -28,14 +29,15 @@
   bottom: 1rem;
   right: 0;
   font-size: 8rem;
+  font-weight: bold;
 }
 
 .percentage-bar {
   position: absolute;
   left: 3rem;
   bottom: 2rem;
-  height: 0.1rem;
-  background-color: #fff;
+  height: 0.2rem;
+  background-color: #ffffff;
 }
 
 @media (min-width: 481px) and (max-width: 768px) {

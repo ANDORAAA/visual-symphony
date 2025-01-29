@@ -1,12 +1,19 @@
-.centuries-page {
+.centuries-page-wrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
+.centuries-page-wrapper h3 {
+  text-align: center;
+  color: #333;
+  padding: 2rem;
+}
+
 .century-timeline {
   display: flex;
+  justify-content: center;
   overflow-x: auto;
 }
 

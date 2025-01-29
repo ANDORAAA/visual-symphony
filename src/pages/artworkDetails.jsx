@@ -25,6 +25,7 @@ const ArtworkDetails = () => {
           <h5>
             Created in {selectedArtwork.place_of_origin},{' '}
             {selectedArtwork.date_display}
+            <hr />
           </h5>
         )}
 
@@ -46,6 +47,7 @@ const ArtworkDetails = () => {
           <p>
             <strong>Dimensions: </strong>
             {selectedArtwork.dimensions}
+            <hr />
           </p>
         )}
 

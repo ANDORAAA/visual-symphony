@@ -20,6 +20,7 @@ const Provider = ({ children }) => {
     '20th Century',
   ]);
   const [selectedArtwork, setSelectedArtwork] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   return (
     <Ctx.Provider
@@ -38,6 +39,8 @@ const Provider = ({ children }) => {
         setCenturies,
         selectedArtwork,
         setSelectedArtwork,
+        searchResults,
+        setSearchResults,
       }}
     >
       {children}

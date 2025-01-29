@@ -35,7 +35,6 @@ const Centuries = () => {
         );
         setTotalPages(res.data.pagination.total_pages);
 
-        console.log(res.data.data);
         const artworksData = res.data.data.map((artwork) => {
           const date_display =
             artwork.date_end ||
@@ -68,43 +67,46 @@ const Centuries = () => {
   };
 
   return (
-    <div className={`centuries-page ${spinner ? 'loading' : ''}`}>
-      <div className='timeline-wrapper'>
-        <CenturyTimeline
-          centuries={centuries}
-          onCenturyClick={handleCenturyClick}
-          selectedCentury={selectedCentury}
-        />
-      </div>
+    <>
+      <div className='centuries-page-wrapper'>
+        <h3>
+          Select a century to view public domain paintings from the Art
+          Institute of Chicago's collection from that time period.
+        </h3>
+        <div className='century-timeline'>
+          <CenturyTimeline
+            centuries={centuries}
+            onCenturyClick={handleCenturyClick}
+            selectedCentury={selectedCentury}
+          />
+        </div>
 
-      <div className='d-flex flex-column mt-3' style={{ maxHeight: '90vh' }}>
-        {artworks.length > 0 && <PaginationControls />}
-        {spinner ? (
-          <Loader />
-        ) : (
-          <div className='artworks-wrapper'>
-            {artworks.length > 0 ? (
-              artworks.map((artwork) => (
-                <ArtworkCard
-                  key={artwork.id}
-                  artwork={artwork}
-                  onClick={() => setSelectedArtwork(artwork)}
-                />
-              ))
-            ) : (
-              <p>Select a century to view paintings</p>
-            )}
-          </div>
+        <div className='d-flex flex-column mt-3' style={{ maxHeight: '90vh' }}>
+          {artworks.length > 0 && <PaginationControls />}
+          {spinner ? (
+            <Loader />
+          ) : (
+            <div className='artworks-wrapper'>
+              {artworks.length > 0 &&
+                artworks.map((artwork) => (
+                  <ArtworkCard
+                    key={artwork.id}
+                    artwork={artwork}
+                    onClick={() => setSelectedArtwork(artwork)}
+                  />
+                ))}
+            </div>
+          )}
+        </div>
+
+        {selectedArtwork && (
+          <Modal
+            selectedArtwork={selectedArtwork}
+            setSelectedArtwork={setSelectedArtwork}
+          />
         )}
       </div>
-
-      {selectedArtwork && (
-        <Modal
-          selectedArtwork={selectedArtwork}
-          setSelectedArtwork={setSelectedArtwork}
-        />
-      )}
-    </div>
+    </>
   );
 };
 

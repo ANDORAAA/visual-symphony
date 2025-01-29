@@ -1,5 +1,5 @@
 const Footer = () => {
-  return (
+  return location.pathname !== '/' ? (
     <footer className='footer'>
       <p>
         Crafted with passion by Andrea Bardos, this web application invites art
@@ -30,7 +30,7 @@ const Footer = () => {
         .
       </p>
     </footer>
-  );
+  ) : null;
 };
 
 export default Footer;

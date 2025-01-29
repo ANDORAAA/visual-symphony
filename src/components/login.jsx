@@ -1,40 +1,45 @@
-import { useContext } from 'react';
-import { Ctx } from '../context/store';
-import { CiUser, CiLock } from 'react-icons/ci';
+import { Form, Button, InputGroup } from 'react-bootstrap';
+import { CiMail, CiLock } from 'react-icons/ci';
 
 const Login = () => {
-  const { hasAccount, setHasAccount } = useContext(Ctx);
-
-  const handleRedirect = () => {
-    setHasAccount(!hasAccount);
-  };
-
   return (
     <div className='authentication'>
-      <form>
-        <h1>Login</h1>
-        <div className='input-box'>
-          <input type='text' placeholder='Username' required />
-          <CiUser className='icon' />
-        </div>
-        <div className='input-box'>
-          <input type='password' placeholder='Password' required></input>
-          <CiLock className='icon' />
-        </div>
-        <div className='remember-forgot'>
-          <label>
-            <input type='checkbox'></input>Remember me
-          </label>
-          <a href='#'>Forgot password?</a>
-        </div>
-        <button type='submit'>Log in</button>
-        <div className='register-link'>
-          <p>
-            Don't have an account?{' '}
-            <span onClick={() => handleRedirect()}>Register</span>
-          </p>
-        </div>
-      </form>
+      <Form className='p-3'>
+        <Form.Group className='mb-3'>
+          <Form.Label>Email address</Form.Label>
+          <InputGroup>
+            <InputGroup.Text>
+              <CiMail />
+            </InputGroup.Text>
+            <Form.Control type='email' placeholder='Enter email' required />
+          </InputGroup>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label>Password</Form.Label>
+          <InputGroup>
+            <InputGroup.Text>
+              <CiLock />
+            </InputGroup.Text>
+            <Form.Control
+              type='password'
+              placeholder='Enter password'
+              required
+            />
+          </InputGroup>
+        </Form.Group>
+
+        <Form.Group className='mb-3 d-flex justify-content-between'>
+          <Form.Check type='checkbox' label='Remember me' />
+          <a href='#' style={{ color: '#333' }}>
+            Forgot password?
+          </a>
+        </Form.Group>
+
+        <Button variant='outline-secondary' type='submit' className='w-100'>
+          Log in
+        </Button>
+      </Form>
     </div>
   );
 };

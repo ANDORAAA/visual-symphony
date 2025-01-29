@@ -19,7 +19,7 @@
 
 .percentage-text {
   position: absolute;
-  bottom: 4rem;
+  bottom: 6rem;
   right: 0;
   font-size: 8rem;
   font-weight: bold;
@@ -28,7 +28,7 @@
 .percentage-bar {
   position: absolute;
   left: 3rem;
-  bottom: 5rem;
+  bottom: 7rem;
   height: 0.2rem;
   background-color: #ffffff;
 }

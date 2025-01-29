@@ -5,3 +5,21 @@
   box-sizing: border-box;
   font-family: 'Playfair Display', serif;
 }
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.footer a {
+  color: #333;
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

@@ -2,10 +2,6 @@
   color: #333;
 }
 
-.nav-bar h5 {
-  margin-left: 0.4rem;
-}
-
 .home-wrapper .hero-text {
   text-align: center;
   font-weight: bold;
@@ -20,4 +16,19 @@
 
 .hero-text h2 {
   margin: 0;
+}
+
+.modal {
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  color: #333;
+  border-radius: 10px;
+  border: none;
+}
+
+.modal .modal-footer p {
+  color: #333;
 }

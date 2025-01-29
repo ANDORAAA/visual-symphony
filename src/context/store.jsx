@@ -19,7 +19,6 @@ const Provider = ({ children }) => {
     '19th Century',
     '20th Century',
   ]);
-  const [hasAccount, setHasAccount] = useState(true);
   const [selectedArtwork, setSelectedArtwork] = useState(null);
 
   return (
@@ -37,8 +36,6 @@ const Provider = ({ children }) => {
         setTotalPages,
         centuries,
         setCenturies,
-        hasAccount,
-        setHasAccount,
         selectedArtwork,
         setSelectedArtwork,
       }}

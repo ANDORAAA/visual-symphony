@@ -70,7 +70,8 @@ export const fetchArtworksByArtist = async (
     const queryParams = {
       'query[bool][must][0][term][is_public_domain]': true,
       'query[bool][must][1][term][artwork_type_id]': 1,
-      'query[bool][must][2][match][artist_display]': artistName,
+      'query[bool][must][2][match_phrase][artist_display]': artistName,
+
       fields:
         'id,image_id,artist_display,title,date_display,date_end,medium_display,style_title,place_of_origin,short_description,dimensions,description',
       page,

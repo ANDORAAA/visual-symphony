@@ -46,6 +46,7 @@ const SearchPage = () => {
       console.error('Error fetching artworks:', error);
     }
     setSpinner(false);
+    setSearchBy(null);
   };
 
   return (

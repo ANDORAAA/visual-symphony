@@ -10,6 +10,7 @@ import '../styles/searchPage.css';
 
 const SearchPage = () => {
   const [query, setQuery] = useState('');
+  const [searchBy, setSearchBy] = useState(null);
   const {
     searchResults,
     setSearchResults,
@@ -24,11 +25,21 @@ const SearchPage = () => {
     setSearchResults([]);
   }, []);
 
-  const fetchData = async (fetchFunction) => {
+  useEffect(() => {
+    fetchData()
+  }, [currentPage, searchBy])
+
+  const fetchData = async () => {
     if (!query) return;
     setSpinner(true);
     try {
-      const response = await fetchFunction(query, currentPage);
+      let response = null;
+      if(searchBy === 'artist'){
+        response = await fetchArtworksByArtist(query, currentPage);
+      }
+      else if(searchBy === 'title'){
+        response = await fetchArtworksByTitle(query, currentPage);
+      }
       setSearchResults(response.data || []);
       setTotalPages(response.pagination?.total_pages || 1);
     } catch (error) {
@@ -53,13 +64,13 @@ const SearchPage = () => {
         />
         <Button
           variant='secondary'
-          onClick={() => fetchData(fetchArtworksByArtist)}
+          onClick={() => setSearchBy('artist')}
         >
           By artist
         </Button>
         <Button
           variant='secondary'
-          onClick={() => fetchData(fetchArtworksByTitle)}
+          onClick={() => setSearchBy('title')}
         >
           By title
         </Button>

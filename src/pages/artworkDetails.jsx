@@ -51,7 +51,7 @@ const ArtworkDetails = () => {
           </p>
         )}
 
-        {selectedArtwork.description && <p>{selectedArtwork.description}</p>}
+        {selectedArtwork.description && <p dangerouslySetInnerHTML={{__html: selectedArtwork.description}}></p>}
       </div>
     </div>
   );

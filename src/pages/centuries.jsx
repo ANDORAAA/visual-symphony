@@ -38,7 +38,8 @@ const Centuries = () => {
         const artworksData = res.data.data.map((artwork) => {
           const date_display =
             artwork.date_end ||
-            artwork.date_display?.match(/\d{4}(?!.*\d{4})/)?.[0];
+            artwork.date_display?.match(/\d{4}(?!.*\d{4})/)?.[0];          
+            
           return {
             id: artwork.id,
             image_id: artwork.image_id,
@@ -48,6 +49,11 @@ const Centuries = () => {
             // year: year ? Number(year) : null,
             short_description: artwork.short_description || ' ',
             date_display: date_display ? Number(date_display) : null,
+            description: artwork.description,
+            medium_display: artwork.medium_display,
+            style_title: artwork.style_title,
+            dimensions: artwork.dimensions
+
           };
         });
 
@@ -65,6 +71,8 @@ const Centuries = () => {
     setSelectedCentury(century);
     setCurrentPage(1);
   };
+
+  console.log({artworks})
 
   return (
     <>

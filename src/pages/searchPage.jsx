@@ -26,7 +26,7 @@ const SearchPage = () => {
   useEffect(() => {
 
     return () => {
-      sessionStorage.setItem("history", JSON.stringify({searchPage: {currentPage, searchBy, query}}))
+      if(searchBy && query)sessionStorage.setItem("history", JSON.stringify({searchPage: {currentPage, searchBy, query}}))
     }
   }, [currentPage, searchBy, query])
  
@@ -34,9 +34,9 @@ const SearchPage = () => {
     const storedHistoryStr = sessionStorage.getItem("history");
     if(storedHistoryStr){
       const history = JSON.parse(storedHistoryStr);
-      setSearchBy(history.searchPage.searchBy); 
-      setCurrentPage(history.searchPage.currentPage);
-      setQuery(history.searchPage.query);
+      setSearchBy(history?.searchPage?.searchBy); 
+      setCurrentPage(history?.searchPage?.currentPage);
+      setQuery(history?.searchPage?.query);
     }
   }, [])
 

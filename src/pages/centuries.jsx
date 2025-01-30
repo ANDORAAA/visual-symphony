@@ -27,7 +27,7 @@ const Centuries = () => {
   useEffect(() => {
 
     return () => {
-      sessionStorage.setItem("history", JSON.stringify({centuries: {currentPage, selectedCentury}}))
+      if(selectedCentury)sessionStorage.setItem("history", JSON.stringify({centuries: {currentPage, selectedCentury}}))
     }
   }, [selectedCentury, currentPage])
 
@@ -35,8 +35,8 @@ const Centuries = () => {
     const storedHistoryStr = sessionStorage.getItem("history");
     if(storedHistoryStr){
       const history = JSON.parse(storedHistoryStr);
-      setSelectedCentury(history.centuries.selectedCentury) 
-      setCurrentPage(history.centuries.currentPage)
+      setSelectedCentury(history?.centuries?.selectedCentury); 
+      setCurrentPage(history?.centuries?.currentPage);
     }
   }, [])
 

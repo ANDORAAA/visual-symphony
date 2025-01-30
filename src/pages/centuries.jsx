@@ -25,6 +25,22 @@ const Centuries = () => {
   const [selectedCentury, setSelectedCentury] = useState(null);
 
   useEffect(() => {
+
+    return () => {
+      sessionStorage.setItem("history", JSON.stringify({centuries: {currentPage, selectedCentury}}))
+    }
+  }, [selectedCentury, currentPage])
+
+  useEffect(() => {
+    const storedHistoryStr = sessionStorage.getItem("history");
+    if(storedHistoryStr){
+      const history = JSON.parse(storedHistoryStr);
+      setSelectedCentury(history.centuries.selectedCentury) 
+      setCurrentPage(history.centuries.currentPage)
+    }
+  }, [])
+
+  useEffect(() => {
     setArtworks([]);
     const loadAllArtworks = async () => {
       setSpinner(true);

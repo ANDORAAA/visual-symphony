@@ -38,8 +38,8 @@ const Centuries = () => {
         const artworksData = res.data.data.map((artwork) => {
           const date_display =
             artwork.date_end ||
-            artwork.date_display?.match(/\d{4}(?!.*\d{4})/)?.[0];          
-            
+            artwork.date_display?.match(/\d{4}(?!.*\d{4})/)?.[0];
+
           return {
             id: artwork.id,
             image_id: artwork.image_id,
@@ -52,8 +52,7 @@ const Centuries = () => {
             description: artwork.description,
             medium_display: artwork.medium_display,
             style_title: artwork.style_title,
-            dimensions: artwork.dimensions
-
+            dimensions: artwork.dimensions,
           };
         });
 
@@ -72,7 +71,7 @@ const Centuries = () => {
     setCurrentPage(1);
   };
 
-  console.log({artworks})
+  console.log({ artworks });
 
   return (
     <>

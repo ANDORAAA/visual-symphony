@@ -32,13 +32,13 @@ const NavBar = () => {
               Your favourites
             </Dropdown.Item>
             <Dropdown.Item onClick={() => navigate('/search')}>
-              Find paintings by artist or title
+              Search paintings by artist or title
             </Dropdown.Item>
-            <Dropdown.Item href='#/action-4'>
-              Find paintings by their medium
+            <Dropdown.Item onClick={() => navigate('/movements')}>
+              Browse paintings by artistic movements and art styles
             </Dropdown.Item>
             <Dropdown.Item onClick={() => navigate('/centuries')}>
-              Find paintings by century
+              Discover paintings by century
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

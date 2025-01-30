@@ -13,8 +13,9 @@
 
 .century-timeline {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  overflow-x: auto;
+  gap: 0.1rem;
 }
 
 .century {
@@ -59,7 +60,7 @@
 }
 
 @media (min-width: 1100px) {
-  .centuries-page {
+  .centuries-page-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;

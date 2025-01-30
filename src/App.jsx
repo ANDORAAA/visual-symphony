@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import LandingPage from './pages/landingPage';
 import Centuries from './pages/centuries';
@@ -5,7 +6,7 @@ import ArtworkDetails from './pages/artworkDetails';
 import SearchPage from './pages/searchPage';
 import NavBar from './components/navBar';
 import Footer from './components/footer';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ArtisticMovements from './pages/artisticMovements';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/centuries' element={<Centuries />} />
         <Route path='/artworkdetails' element={<ArtworkDetails />} />
         <Route path='/search' element={<SearchPage />} />
+        <Route path='/movements' element={<ArtisticMovements />} />
       </Routes>
       <Footer />
     </Router>

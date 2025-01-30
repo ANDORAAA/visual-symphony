@@ -21,6 +21,40 @@ const Provider = ({ children }) => {
   ]);
   const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [artisticMovements, setArtisticMovements] = useState([
+    // Western Art Movements
+    'Impressionism',
+    'Post-Impressionism',
+    'Pointillism',
+    'Mannerism',
+    'Renaissance',
+    'Modernism',
+    'Realism',
+    'Pre-Raphaelite',
+    'Baroque',
+    'Neoclassicism',
+    'Barbizon School',
+    'Synthetism',
+
+    // Asian & Middle Eastern Art Movements
+    'Japanese',
+    'Chinese',
+    'Korean',
+    'South Asian',
+    'Indian',
+    'Islamic',
+    'Himalayan',
+    'Mughal',
+    'Safavid',
+
+    // American & Folk Art
+    'American Colonial',
+    'Flemish',
+    'Folk Art',
+
+    // Ancient & Other
+    'Ancient',
+  ]);
 
   return (
     <Ctx.Provider
@@ -41,6 +75,8 @@ const Provider = ({ children }) => {
         setSelectedArtwork,
         searchResults,
         setSearchResults,
+        artisticMovements,
+        setArtisticMovements,
       }}
     >
       {children}

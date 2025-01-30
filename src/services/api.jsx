@@ -107,8 +107,8 @@ export const fetchArtworksByTitle = async (title, page = 1, limit = 10) => {
   }
 };
 
-export const fetchArtworkByArtist = async (
-  artistName,
+export const fetchArtworksByMovement = async (
+  movement,
   page = 1,
   limit = 30
 ) => {
@@ -116,17 +116,17 @@ export const fetchArtworkByArtist = async (
     const API_URL = `https://api.artic.edu/api/v1/artworks/search`;
     const queryParams = {
       'query[bool][must][0][term][is_public_domain]': true,
-      'query[bool][must][1][match][artist_display]': artistName,
+      'query[bool][must][1][term][artwork_type_id]': 1,
+      'query[bool][must][2][match][style_title]': movement,
       fields:
         'id,image_id,artist_display,title,date_display,date_end,medium_display,style_title,place_of_origin,short_description,dimensions,description',
       page,
       limit,
     };
-
     const response = await axios.get(API_URL, { params: queryParams });
     return response.data;
   } catch (error) {
-    console.error('Error fetching artworks by artist:', error);
+    console.error('Error fetching artworks:', error);
     throw error;
   }
 };

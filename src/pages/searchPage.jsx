@@ -3,9 +3,9 @@ import { Ctx } from '../context/store';
 import { fetchArtworksByTitle, fetchArtworksByArtist } from '../services/api';
 import Button from 'react-bootstrap/Button';
 import ArtworkCard from '../components/artworkCard';
+import Modal from '../components/modal';
 import Loader from '../components/loader';
 import PaginationControls from '../components/paginationControls';
-import Footer from '../components/footer';
 import '../styles/searchPage.css';
 
 const SearchPage = () => {
@@ -18,35 +18,44 @@ const SearchPage = () => {
     spinner,
     currentPage,
     setTotalPages,
+    selectedArtwork,
     setSelectedArtwork,
+    setCurrentPage,
   } = useContext(Ctx);
 
   useEffect(() => {
     setSearchResults([]);
   }, []);
 
-  useEffect(() => {
-    fetchData()
-  }, [currentPage, searchBy])
-
   const fetchData = async () => {
-    if (!query) return;
+    if (!query || !searchBy) return;
     setSpinner(true);
     try {
       let response = null;
-      if(searchBy === 'artist'){
+      if (searchBy === 'artist') {
         response = await fetchArtworksByArtist(query, currentPage);
-      }
-      else if(searchBy === 'title'){
+      } else if (searchBy === 'title') {
         response = await fetchArtworksByTitle(query, currentPage);
       }
-      setSearchResults(response.data || []);
+
+      if (!response || !response.data) {
+        setSearchResults([]);
+        setTotalPages(1);
+        return;
+      }
+
+      setSearchResults(response.data);
       setTotalPages(response.pagination?.total_pages || 1);
     } catch (error) {
       console.error('Error fetching artworks:', error);
     }
     setSpinner(false);
-    setSearchBy(null);
+  };
+
+  const handleSearch = (type) => {
+    setSearchBy(type);
+    setCurrentPage(1);
+    fetchData();
   };
 
   return (
@@ -63,16 +72,10 @@ const SearchPage = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Button
-          variant='secondary'
-          onClick={() => setSearchBy('artist')}
-        >
+        <Button variant='secondary' onClick={() => handleSearch('artist')}>
           By artist
         </Button>
-        <Button
-          variant='secondary'
-          onClick={() => setSearchBy('title')}
-        >
+        <Button variant='secondary' onClick={() => handleSearch('title')}>
           By title
         </Button>
       </div>
@@ -97,6 +100,13 @@ const SearchPage = () => {
           </div>
         )}
       </div>
+
+      {selectedArtwork && (
+        <Modal
+          selectedArtwork={selectedArtwork}
+          setSelectedArtwork={setSelectedArtwork}
+        />
+      )}
     </div>
   );
 };

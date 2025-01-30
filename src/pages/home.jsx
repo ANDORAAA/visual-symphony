@@ -19,7 +19,6 @@ const Home = () => {
       setAuthView('login');
       setShowModal(true);
 
-      // Reset the location state to prevent reopening the modal on back navigation
       navigate('/home', { replace: true, state: {} });
     }
   }, [location.state, navigate]);

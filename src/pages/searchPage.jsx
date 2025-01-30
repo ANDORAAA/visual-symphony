@@ -27,8 +27,12 @@ const SearchPage = () => {
     setSearchResults([]);
   }, []);
 
+  useEffect(() => {
+    fetchData();
+  }, [searchBy, currentPage])
+
   const fetchData = async () => {
-    if (!query || !searchBy) return;
+    if (!query) return;
     setSpinner(true);
     try {
       let response = null;
@@ -37,26 +41,29 @@ const SearchPage = () => {
       } else if (searchBy === 'title') {
         response = await fetchArtworksByTitle(query, currentPage);
       }
-
-      if (!response || !response.data) {
+      setSpinner(false);
+      if ((!response || !response.data) && searchBy) {
         setSearchResults([]);
         setTotalPages(1);
         return;
       }
-
       setSearchResults(response.data);
       setTotalPages(response.pagination?.total_pages || 1);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error fetching artworks:', error);
     }
-    setSpinner(false);
   };
 
   const handleSearch = (type) => {
     setSearchBy(type);
     setCurrentPage(1);
-    fetchData();
   };
+
+  const handleSearchInputChange = (e) => {
+    setQuery(e.target.value);
+    if(searchBy)setSearchBy(null);
+  }
 
   return (
     <div className='search-page-wrapper'>
@@ -70,7 +77,7 @@ const SearchPage = () => {
           type='text'
           placeholder='Enter artist name or title...'
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleSearchInputChange}
         />
         <Button variant='secondary' onClick={() => handleSearch('artist')}>
           By artist

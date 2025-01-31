@@ -32,9 +32,7 @@ const NavBar = () => {
 
       <div>
         {user && <span>{user.email}</span>}
-        <Button variant='outline-secondary btn-sm' onClick={logout}>
-          Logout
-        </Button>
+
         <Dropdown>
           <DropdownToggle
             variant='secondary-outline'
@@ -44,11 +42,6 @@ const NavBar = () => {
           </DropdownToggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item
-              onClick={() => navigate('/home', { state: { view: 'login' } })}
-            >
-              Log in | Register
-            </Dropdown.Item>
             <Dropdown.Item onClick={() => navigate('/home')}>
               Home
             </Dropdown.Item>
@@ -64,6 +57,12 @@ const NavBar = () => {
             <Dropdown.Item onClick={() => navigate('/centuries')}>
               Discover paintings by century
             </Dropdown.Item>
+            <Dropdown.Item
+              onClick={() => navigate('/home', { state: { view: 'login' } })}
+            >
+              Log in | Register
+            </Dropdown.Item>
+            <Dropdown.Item onClick={logout}>Log out</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>

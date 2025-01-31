@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const Ctx = createContext();
 
@@ -56,6 +56,34 @@ const Provider = ({ children }) => {
   ]);
   const [user, setUser] = useState(null);
 
+  const [favourites, setFavourites] = useState([]);
+
+  //  Load favourites from localStorage on initial render
+  useEffect(() => {
+    const savedFavourites = JSON.parse(localStorage.getItem('favourites'));
+    if (savedFavourites) {
+      setFavourites(savedFavourites);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favourites', JSON.stringify(favourites));
+  }, [favourites]);
+
+  const addToFavourites = (artwork) => {
+    if (!favourites.some((fav) => fav.id === artwork.id)) {
+      const updatedFavourites = [...favourites, artwork];
+      setFavourites(updatedFavourites);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavourites));
+    }
+  };
+
+  const removeFromFavourites = (artworkId) => {
+    const updatedFavourites = favourites.filter((fav) => fav.id !== artworkId);
+    setFavourites(updatedFavourites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavourites));
+  };
+
   return (
     <Ctx.Provider
       value={{
@@ -79,6 +107,9 @@ const Provider = ({ children }) => {
         setArtisticMovements,
         user,
         setUser,
+        favourites,
+        addToFavourites,
+        removeFromFavourites,
       }}
     >
       {children}

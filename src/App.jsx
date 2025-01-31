@@ -21,14 +21,7 @@ function App() {
         <Route path='/artworkdetails' element={<ArtworkDetails />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/movements' element={<ArtisticMovements />} />
-        <Route
-          path='/favourites'
-          element={
-            <ProtectedRoute>
-              <Favourites />
-            </ProtectedRoute>
-          }
-        />
+        <Route path='/favourites' element={<Favourites />} />
       </Routes>
       <Footer />
     </Router>

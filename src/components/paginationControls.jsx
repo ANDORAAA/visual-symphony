@@ -3,10 +3,8 @@ import { useContext } from 'react';
 import { CiCircleChevRight, CiCircleChevLeft } from 'react-icons/ci';
 import '../styles/paginationControls.css';
 
-
 const PaginationControls = () => {
-  const { currentPage, setCurrentPage, totalPages } =
-    useContext(Ctx);
+  const { currentPage, setCurrentPage, totalPages } = useContext(Ctx);
 
   const handlePrevious = () => {
     if (currentPage > 1) {

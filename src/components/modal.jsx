@@ -1,17 +1,20 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IoCloseOutline } from 'react-icons/io5';
-import { IoHeartOutline } from 'react-icons/io5';
-
+import {
+  IoCloseOutline,
+  IoTrashOutline,
+  IoHeartOutline,
+} from 'react-icons/io5';
+import { Ctx } from '../context/store';
 import '../styles/modal.css';
 
 const Modal = ({ selectedArtwork, setSelectedArtwork }) => {
   const navigate = useNavigate();
-
-  const handleLearnMore = () => {
-    navigate('/artworkdetails');
-  };
+  const { addToFavourites, removeFromFavourites, favourites } = useContext(Ctx);
 
   const closeModal = () => setSelectedArtwork(null);
+
+  const isFavorite = favourites.some((fav) => fav.id === selectedArtwork.id);
 
   return (
     <div className='modal-overlay' onClick={closeModal}>
@@ -24,31 +27,35 @@ const Modal = ({ selectedArtwork, setSelectedArtwork }) => {
           alt={selectedArtwork.title}
         />
         <div className='artwork-details'>
-          {selectedArtwork.title && <h1>{selectedArtwork.title}</h1>}
-          {selectedArtwork.artist_display && (
-            <h4>{selectedArtwork.artist_display}</h4>
-          )}
-          {selectedArtwork.place_of_origin && selectedArtwork.date_display && (
-            <p>
-              Created in {selectedArtwork.place_of_origin},{' '}
-              {selectedArtwork.date_display}
-            </p>
-          )}
-          {selectedArtwork.short_description && (
-            <p>{selectedArtwork.short_description}</p>
-          )}
+          <h1>{selectedArtwork.title}</h1>
+          <h4>{selectedArtwork.artist_display}</h4>
+          <p>
+            Created in {selectedArtwork.place_of_origin},{' '}
+            {selectedArtwork.date_display}
+          </p>
           <p
             className='more-details'
-            style={{ color: 'rgb(208, 208, 208)' }}
-            onClick={handleLearnMore}
+            onClick={() => navigate('/artworkdetails')}
+            style={{ textDecoration: 'underline' }}
           >
             Learn more about this painting
           </p>
-          <p style={{ color: 'rgb(208, 208, 208)' }}>
-            Save it to your favourites{' '}
-            <IoHeartOutline className='save-to-favourites' />
-          </p>
-          <hr />
+
+          {isFavorite ? (
+            <p
+              onClick={() => removeFromFavourites(selectedArtwork.id)}
+              style={{ cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              Remove from Favorites <IoTrashOutline />
+            </p>
+          ) : (
+            <p
+              onClick={() => addToFavourites(selectedArtwork)}
+              style={{ cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              Save to Favorites <IoHeartOutline />
+            </p>
+          )}
         </div>
       </div>
     </div>

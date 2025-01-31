@@ -24,7 +24,6 @@ const Provider = ({ children }) => {
   const [artisticMovements, setArtisticMovements] = useState([
     // Western Art Movements
     'Impressionism',
-    'Post-Impressionism',
     'Pointillism',
     'Mannerism',
     'Renaissance',

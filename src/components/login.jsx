@@ -52,10 +52,10 @@ const Login = () => {
           </InputGroup>
         </Form.Group>
 
-        <Form.Group className='mb-3 d-flex justify-content-between'>
-          <button onClick={handleForgetPsw} style={{ color: '#333' }}>
+        <Form.Group className='mb-3 d-flex justify-content-end'>
+          <Button variant='outline-secondary btn-sm' onClick={handleForgetPsw}>
             Forgot password?
-          </button>
+          </Button>
         </Form.Group>
 
         <Button variant='outline-secondary' type='submit' className='w-100'>

@@ -7,6 +7,8 @@ import SearchPage from './pages/searchPage';
 import NavBar from './components/navBar';
 import Footer from './components/footer';
 import ArtisticMovements from './pages/artisticMovements';
+import Favourites from './pages/favourites';
+import ProtectedRoute from './components/protectedRoute';
 
 function App() {
   return (
@@ -19,6 +21,14 @@ function App() {
         <Route path='/artworkdetails' element={<ArtworkDetails />} />
         <Route path='/search' element={<SearchPage />} />
         <Route path='/movements' element={<ArtisticMovements />} />
+        <Route
+          path='/favourites'
+          element={
+            <ProtectedRoute>
+              <Favourites />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
     </Router>

@@ -1,3 +1,8 @@
+import { useContext, useEffect } from 'react';
+import { Ctx } from '../context/store';
+import { onAuthStateChanged } from 'firebase/auth';
+import { logout } from '../fbServices/fbAuth';
+import { auth } from '../fbServices/fb';
 import { Dropdown, DropdownToggle } from 'react-bootstrap';
 import { CiMenuBurger } from 'react-icons/ci';
 import { useNavigate } from 'react-router-dom';
@@ -5,10 +10,27 @@ import '../styles/navBar.css';
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const { user, setUser } = useContext(Ctx);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        console.log('>>>on auth state change>>>', user);
+        setUser({ uid, email: user.email });
+        navigate('/');
+      } else {
+        setUser(null);
+        console.log('User is signed out');
+      }
+    });
+  }, []);
 
   return location.pathname !== '/' ? (
     <div className='nav-bar'>
       <h5>Visual Symphony</h5>
+      {user && <span>{user.email}</span>}
+      <button onClick={logout}>Logout</button>
       <div>
         <Dropdown>
           <DropdownToggle

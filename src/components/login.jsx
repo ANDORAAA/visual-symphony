@@ -1,9 +1,32 @@
+import { login, resetPassword } from '../fbServices/fbAuth';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { CiMail, CiLock } from 'react-icons/ci';
 
 const Login = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const email = formData.get('email');
+    const psw = formData.get('psw');
+
+    login(email, psw)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleForgetPsw = (e) => {
+    e.preventDefault();
+    const formData = new FormData(formRef.current);
+    const email = formData.get('email');
+    resetPassword(email);
+  };
+
   return (
-    <div className='authentication'>
+    <div className='authentication' onSubmit={handleSubmit}>
       <Form className='p-3'>
         <Form.Group className='mb-3'>
           <Form.Label>Email address</Form.Label>
@@ -30,10 +53,9 @@ const Login = () => {
         </Form.Group>
 
         <Form.Group className='mb-3 d-flex justify-content-between'>
-          <Form.Check type='checkbox' label='Remember me' />
-          <a href='#' style={{ color: '#333' }}>
+          <button onClick={handleForgetPsw} style={{ color: '#333' }}>
             Forgot password?
-          </a>
+          </button>
         </Form.Group>
 
         <Button variant='outline-secondary' type='submit' className='w-100'>

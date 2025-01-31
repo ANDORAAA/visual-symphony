@@ -55,6 +55,7 @@ const Provider = ({ children }) => {
     // Ancient & Other
     'Ancient',
   ]);
+  const [user, setUser] = useState(null);
 
   return (
     <Ctx.Provider
@@ -77,6 +78,8 @@ const Provider = ({ children }) => {
         setSearchResults,
         artisticMovements,
         setArtisticMovements,
+        user,
+        setUser,
       }}
     >
       {children}

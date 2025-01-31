@@ -29,7 +29,7 @@ export const fetchArtworksByYearRange = async (startYear, endYear, page) => {
     'query[bool][must][2][range][date_end][lte]': endYear,
     fields:
       'id,image_id,artist_display,title,date_display,date_end,medium_display,style_title,place_of_origin,short_description,dimensions,description',
-    limit: 100,
+    limit: 30,
   };
 
   const response = await axios.get(API_URL, {

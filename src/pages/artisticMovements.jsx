@@ -24,6 +24,25 @@ const ArtisticMovements = () => {
   const [selectedMovement, setSelectedMovement] = useState(null);
 
   useEffect(() => {
+    return () => {
+      if (selectedMovement)
+        sessionStorage.setItem(
+          'history',
+          JSON.stringify({ movement: { currentPage, selectedMovement } })
+        );
+    };
+  }, [selectedMovement, currentPage]);
+
+  useEffect(() => {
+    const storedHistoryStr = sessionStorage.getItem('history');
+    if (storedHistoryStr) {
+      const history = JSON.parse(storedHistoryStr);
+      setSelectedMovement(history?.movement?.selectedMovement);
+      setCurrentPage(history?.movement?.currentPage);
+    }
+  }, []);
+
+  useEffect(() => {
     setArtworks([]);
     const loadArtworks = async () => {
       setSpinner(true);

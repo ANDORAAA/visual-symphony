@@ -10,10 +10,10 @@ const Register = () => {
     const psw = formData.get('psw');
     signup(email, psw)
       .then((res) => {
-        console.log(res);
+        console.log('User registered:', res);
       })
       .catch((error) => {
-        console.log(error);
+        console.error('Signup error:', error.code, error.message);
       });
   };
 

@@ -13,7 +13,7 @@
 
 .modal-overlay .modal-content {
   backdrop-filter: blur(30px);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   width: 90vw;
   height: 80vh;
@@ -42,7 +42,6 @@
 
 .artwork-details {
   text-align: left;
-  margin-top: 0.6rem;
 }
 
 .more-details:hover {

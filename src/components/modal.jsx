@@ -33,6 +33,7 @@ const Modal = ({ selectedArtwork, setSelectedArtwork }) => {
             Created in {selectedArtwork.place_of_origin},{' '}
             {selectedArtwork.date_display}
           </p>
+          <p>{selectedArtwork.short_description}</p>
           <p
             className='more-details'
             onClick={() => navigate('/artworkdetails')}
@@ -44,7 +45,10 @@ const Modal = ({ selectedArtwork, setSelectedArtwork }) => {
           {isFavorite ? (
             <p
               onClick={() => removeFromFavourites(selectedArtwork.id)}
-              style={{ cursor: 'pointer', textDecoration: 'underline' }}
+              style={{
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
             >
               Remove from Favorites <IoTrashOutline />
             </p>
